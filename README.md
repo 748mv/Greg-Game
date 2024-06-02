@@ -1,1 +1,1 @@
-A text-based game about chmistry inspired by GregTech Modern and Minecraft
+A text-based game about chemistry inspired by GregTech Modern and Minecraft
