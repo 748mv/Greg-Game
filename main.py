@@ -2,22 +2,26 @@ index = []
 craftlist = []
 allowed = True
 
-def indexingres(item_index, indexed_item):
+def register_resources(item_index, indexed_item):
     global index
     index.insert(item_index, indexed_item)
 
-indexingres(1, ['Wood', 0])
-indexingres(2, ['Stone', 0])
 
-def indexingcraft(item_index, indexed_item):
+register_resources(1, ['Wood', 0])
+register_resources(2, ['Stone', 0])
+
+
+def register_crafting_items(item_index, indexed_item):
     global craftlist
     craftlist.insert(item_index, indexed_item)
 
 
-indexingcraft(1, ['Planks', 0])
-indexingcraft(2, ['Furnace', 0])
+register_crafting_items(1, ['Planks', 0])
+register_crafting_items(2, ['Furnace', 0])
 
 print(index, craftlist)
+
+
 def farm(id, farmed, name = None):
     global index
     if farming == str(id):
@@ -39,7 +43,6 @@ def craft(name, item_index, craftid, crafted, reqs):
         print('Done!\n')
         print(craftlist)
         allowed = True
-
 
 
 while True:
