@@ -22,7 +22,7 @@ register_crafting_items(2, ['Furnace', 0])
 print(index, craftlist)
 
 
-def farm(id, farmed, name = None):
+def farm(id, farmed, name=None):
     global index
     if farming == str(id):
         print('Farming ' + index[id - 1][0] + '...')
@@ -32,13 +32,13 @@ def farm(id, farmed, name = None):
 
 
 def craft(name, item_index, craftid, crafted, reqs):
-    global craftlist, index, allowed
+    global craftlist, index, allowed, mixedlist
     if crafting == str(craftid):
         print('Crafting ' + craftlist[item_index - 1][0] + '...')
         craftlist[item_index - 1][1] += crafted
-        for reqs[0:len(reqs) - 1] in mixedlist[0:2]:
+        for reqs[0:len(reqs)] in mixedlist[0:2]:
             if allowed:
-                index[1][1] -= 8
+                mixedlist[0][1][1] -= reqs[0:len(reqs)][1]
                 allowed = False
         print('Done!\n')
         print(craftlist)
@@ -48,6 +48,8 @@ def craft(name, item_index, craftid, crafted, reqs):
 while True:
     craftindexstart = len(index)
     mixedlist = [index, craftlist]
+    index = mixedlist[0]
+    craftlist = mixedlist[1]
     print(mixedlist)
     print('1. Craft')
     print('2. Farm')
